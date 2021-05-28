@@ -5,19 +5,21 @@ services:
       context: requirements/mariadb
       dockerfile: Dockerfile
     volumes:
-      - /data/mariadb:/var/lib/mysql
+      - dbdata:/var/lib/mysql
     restart: always
+    networks:
+      - mynetwork
   wordpress:
     build:
       context: requirements/wordpress
       dockerfile: Dockerfile
     volumes:
-      - /data/wordpress:/wordpress
+      - wordpress:/wordpress
     depends_on:
       - mariadb
-    links:
-      - mariadb
     restart: always
+    networks:
+      - mynetwork
   nginx:
     build:
       context: requirements/nginx
@@ -25,13 +27,16 @@ services:
     ports:
       - 443:443
     volumes:
-      - /data/wordpress:/var/www/ynoam.42.fr
-    links:
-      - wordpress
+      - wordpress:/var/www/html
     depends_on:
       - mariadb
       - wordpress
     restart: always
+    networks:
+      - mynetwork
+volumes:
+  wordpress:
+  dbdata:
 networks:
   mynetwork:
     driver: bridge

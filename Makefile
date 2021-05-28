@@ -1,5 +1,7 @@
 all:
 	docker-machine create default
 	eval $(docker-machine env default)
-	docker-compose build -f srcs/docker-compose.yml
+	cd srcs
+	docker-compose build
 	docker-compose up -d
+	docker cp

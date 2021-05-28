@@ -8,4 +8,5 @@ RUN touch /run/openrc/softlevel
 RUN /etc/init.d/mariadb setup
 COPY cnf/mariadb-server.cnf /etc/my.cnf.d/
 COPY cnf/run.sh /
-CMD sh run.shm
+RUN sh /run.sh
+CMD ["mysqld_safe"]

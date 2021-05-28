@@ -1,13 +1,10 @@
-FROM alpine:3.12.1
+FROM debian:buster
 EXPOSE 443
-RUN apk update
-RUN apk add openrc
-RUN rc-status
-RUN touch /run/openrc/softlevel
-RUN apk add nginx
-RUN mkdir -p /var/www/ynoam.42.fr
-COPY cnf/default.conf /
+EXPOSE 80
+RUN apt update
+RUN apt-get -y install nginx
+RUN mkdir -p /var/www/html
+COPY cnf/default.conf /etc/nginx/sites-available/default
 COPY cnf/example.crt /
 COPY cnf/example.key /
-COPY cnf/run.sh /
-CMD sh /run.sh
+CMD nginx -g "daemon off;"
