@@ -3,7 +3,7 @@ services:
   mariadb:
     build:
       context: requirements/mariadb
-      dockerfile: Dockerfile
+    container_name: mariadb
     volumes:
       - dbdata:/var/lib/mysql
     restart: always
@@ -12,7 +12,7 @@ services:
   wordpress:
     build:
       context: requirements/wordpress
-      dockerfile: Dockerfile
+    container_name: wordpress
     volumes:
       - wordpress:/wordpress
     depends_on:
@@ -23,9 +23,10 @@ services:
   nginx:
     build:
       context: requirements/nginx
-      dockerfile: Dockerfile
+    container_name: nginx
     ports:
       - 443:443
+      - 80:80
     volumes:
       - wordpress:/var/www/html
     depends_on:
