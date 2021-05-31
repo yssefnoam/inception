@@ -7,6 +7,7 @@ RUN rc-status
 RUN touch /run/openrc/softlevel
 RUN /etc/init.d/mariadb setup
 COPY cnf/mariadb-server.cnf /etc/my.cnf.d/
-COPY cnf/run.sh /
-RUN sh /run.sh
+RUN service mariadb start
+RUN mysql -e "create database wordpress;"
+RUN mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'ynoam'@'%' IDENTIFIED BY 'ynoam';"
 CMD ["mysqld_safe"]
