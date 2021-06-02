@@ -8,10 +8,4 @@ RUN chmod -R 777 /var/www/html
 COPY cnf/default.conf /etc/nginx/sites-available/default
 COPY cnf/example.crt /
 COPY cnf/example.key /
-# COPY cnf/latest.tar.gz /
-# RUN tar -xvf /latest.tar.gz
-# RUN mv /wordpress/* /var/www/html
-# COPY cnf/wp-config.php /var/www/html
-# RUN apt install -y php-fpm php-mysql
-# CMD service php7.3-fpm start && nginx -g "daemon off;"
 CMD nginx -g "daemon off;"
