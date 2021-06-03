@@ -26,7 +26,6 @@ services:
     container_name: nginx
     ports:
       - 443:443
-      - 80:80
     volumes:
       - wordpress:/var/www/html
     depends_on:
