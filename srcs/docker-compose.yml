@@ -1,9 +1,11 @@
-version: '3'
+version: "3"
 services:
   mariadb:
     build:
       context: requirements/mariadb
     container_name: mariadb
+    ports:
+      - "3306"
     volumes:
       - dbdata:/var/lib/mysql
     restart: always
@@ -13,8 +15,10 @@ services:
     build:
       context: requirements/wordpress
     container_name: wordpress
+    ports:
+      - "9000"
     volumes:
-      - wordpress:/wordpress
+      - wordpress:/var/www/html
     depends_on:
       - mariadb
     restart: always

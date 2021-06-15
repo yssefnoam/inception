@@ -1,12 +1,13 @@
 FROM debian:buster
 EXPOSE 9000
 RUN apt update
-RUN apt install -y php7.3-fpm php7.3-mysql
+RUN apt-get install -y php-fpm php-gd php-mysql php-cli \
+	php-common php-curl php-opcache php-json php-imap php-mbstring php-xml
 COPY latest.tar.gz /
 RUN tar -xvf /latest.tar.gz
-COPY wp-config.php /wordpress/wp-config.php
-COPY www.conf /etc/php7/php-fpm.d/www.conf
-RUN chmod -R 777 /wordpress
+RUN mkdir -p  /var/www/html
+RUN mv /wordpress/* /var/www/html
+# COPY wp-config.php /wp-config.php
+RUN chmod -R 777 /var/www/html
 RUN mkdir -p /run/php 
-# CMD php-fpm7.3 -F
-CMD service php7.3-fpm start && tail -f /dev/null
+CMD php-fpm7.3 -F
