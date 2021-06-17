@@ -10,4 +10,5 @@ RUN mv /wordpress/* /var/www/html
 # COPY wp-config.php /wp-config.php
 RUN chmod -R 777 /var/www/html
 RUN mkdir -p /run/php 
-CMD php-fpm7.3 -F
+# CMD php-fpm7.3 -F
+ CMD tail -f /dev/null
