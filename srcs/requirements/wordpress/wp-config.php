@@ -29,10 +29,10 @@ define( 'DB_USER', 'ynoam' );
 define( 'DB_PASSWORD', 'ynoam' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'mariadb:3306');
+define( 'DB_HOST', 'mariadb' );
 
 /** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8' );
+define( 'DB_CHARSET', 'utf8mb4' );
 
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
@@ -46,14 +46,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'put your unique phrase here' );
-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-define( 'NONCE_KEY',        'put your unique phrase here' );
-define( 'AUTH_SALT',        'put your unique phrase here' );
-define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
-define( 'NONCE_SALT',       'put your unique phrase here' );
+define( 'AUTH_KEY',         'xjKu ~>F~TeI^*!iZ^ymM_pKr&D`CeF1]PImuE=/{SAXVG8fJITZckPBzdk]z=wC' );
+define( 'SECURE_AUTH_KEY',  'CebXIC%N)^1km5X3-g:l5uqYuE{Kfz&{US=T=G6b, (U((E+MgUHPExY:#gj!}^[' );
+define( 'LOGGED_IN_KEY',    's=1|p86z(ALo>PFe6tzK&]KZc?nLd,0co,wk^Sonj?QzDr|UM?{CT`]*/_RKoD5m' );
+define( 'NONCE_KEY',        '+fNgO|MJz:A9,e6;NoRukk$_,y%rV0@A/hhas8Uz_FSynjN#7ESQroW8JLDVfsB]' );
+define( 'AUTH_SALT',        '8WBvZ$wqS5i,(O[p~7Y4{2U:7vq-=QA+3Jl`nyaM>q=[Sm00q08G=7|Ue]0}Kz5*' );
+define( 'SECURE_AUTH_SALT', 'I UnefW>+Dbq&+];Zk{kKLG>Ix6bixr.uU]SN[?Gjm0KG[oEc/^[AK,iq&Sl+7;R' );
+define( 'LOGGED_IN_SALT',   'G>?g<prC3ixh8/@cVY6_;LuXS=Q6i-T%pEV1Bx!HtU=[.X=<MNg/ActXDGop?N@8' );
+define( 'NONCE_SALT',       '/3I;O|6zxtC[Zh;T}5xs<~|=qjd]WOh|UgA:}&MVBVK4fa^o-ie3[J3_D.bUb~a4' );
 
 /**#@-*/
 
@@ -88,3 +88,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
