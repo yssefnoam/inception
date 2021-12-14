@@ -1,11 +1,19 @@
 FROM debian:buster
 EXPOSE 3306
 RUN apt update
-RUN apt-get install -y mariadb-server mariadb-client vim
-COPY cnf/50-server.cnf /etc/mysql/mariadb.conf.d
-COPY cnf/wordpress.sql /
-RUN service mysql start && \
-    mysql -e "create database wordpress;" && \
-    mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'ynoam'@'%' IDENTIFIED BY 'ynoam';" && \
-    mysql wordpress < /wordpress.sql
-CMD ["mysqld_safe"]
+RUN apt-get install -y mariadb-server
+COPY cnf/* /
+RUN mv /my.cnf /etc/mysql/mariadb.conf.d
+# CMD sh /setup.sh
+CMD tail -f /dev/null
+# RUN apt-get update \
+#  && DEBIAN_FRONTEND=noninteractive apt-get install -y mariadb-server \
+#  && sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mysql/mysql.conf.d/mysqld.cnf \
+#  && mkdir /var/run/mysqld \
+#  && chown -R mysql:mysql /var/run/mysqld
+
+# VOLUME ["/var/lib/mysql"]
+
+# EXPOSE 3306
+
+# CMD ["mysqld_safe"]

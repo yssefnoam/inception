@@ -6,4 +6,5 @@ RUN mkdir -p /var/www/html
 COPY cnf/default.conf /etc/nginx/sites-available/default
 COPY cnf/example.crt /
 COPY cnf/example.key /
-CMD nginx -g "daemon off;"
+CMD  nginx -g "daemon off;"
+# CMD tail -f /dev/null
