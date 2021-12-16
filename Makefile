@@ -1,7 +1,5 @@
 all:
-	docker-machine create default
-	eval $(docker-machine env default)
-	cd srcs
-	docker-compose build
-	docker-compose up -d
-	docker cp
+	docker-compose -f "srcs/docker-compose.yml" up -d --build
+clean:
+	docker-compose -f "srcs/docker-compose.yml" down
+fclean: clean
