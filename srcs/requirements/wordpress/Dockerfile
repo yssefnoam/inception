@@ -10,4 +10,5 @@ COPY cnf/wp-config.php /
 COPY cnf/www.conf /etc/php/7.3/fpm/pool.d
 COPY cnf/setup.sh /
 RUN mkdir -p /run/php 
-CMD sh /setup.sh
+RUN mv /wordpress/* /wp-config.php /var/www/html
+CMD php-fpm7.3 -F
