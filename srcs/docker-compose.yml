@@ -23,6 +23,8 @@ services:
         - /home/ynoam/data/wp-files:/var/www/html
     depends_on:
       - mariadb
+    env_file:
+      - .env
     restart: always
     networks:
       - mynetwork
