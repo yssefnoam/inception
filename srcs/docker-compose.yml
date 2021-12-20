@@ -7,7 +7,7 @@ services:
     ports:
       - "3306"
     volumes:
-        - /home/ynoam/data/wp-db:/var/lib/mysql/wordpress
+        - wp-db:/var/lib/mysql/wordpress
     networks:
       - mynetwork
     env_file:
@@ -20,7 +20,7 @@ services:
     ports:
       - "9000"
     volumes:
-        - /home/ynoam/data/wp-files:/var/www/html
+        - wp-files:/var/www/html
     depends_on:
       - mariadb
     env_file:
@@ -35,12 +35,24 @@ services:
     ports:
       - "443:443"
     volumes:
-        - /home/ynoam/data/wp-files:/var/www/html
+        - wp-files:/var/www/html
     depends_on:
       - mariadb
       - wordpress
     restart: always
     networks:
       - mynetwork
+volumes:
+  wp-db:
+    driver_opts:
+      type: none
+      device: /home/ynoam/data/wp-db
+      o: bind
+  wp-files:
+    driver_opts:
+      type: none
+      device: /home/ynoam/data/wp-files
+      o: bind
+
 networks:
   mynetwork:
