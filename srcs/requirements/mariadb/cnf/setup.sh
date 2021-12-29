@@ -8,3 +8,4 @@ if [ -z "$(ls -A /var/lib/mysql/wordpress)" ]; then
     service mysql stop
 fi
 mysqld_safe
+# tail -f /dev/null
