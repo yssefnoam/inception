@@ -32,16 +32,24 @@ services:
     image: ftp
     build: requirements/bonus/ftp
     container_name: ftp
+    depends_on:
+      - mariadb
+      - wordpress
     ports:
       - "20:20"
       - "21:21"
     restart: always
+    volumes:
+        - wp-files:/var/www/html
     networks:
       - mynetwork
   redis:
     image: redis
     build: requirements/bonus/redis
     container_name: redis
+    depends_on:
+      - mariadb
+      - wordpress
     ports:
       - "6379"
     restart: always
@@ -51,6 +59,9 @@ services:
     image: adminer
     build: requirements/bonus/adminer
     container_name: adminer
+    depends_on:
+      - mariadb
+      - wordpress
     ports:
       - "5000:5000"
     restart: always
