@@ -1,7 +1,6 @@
-FROM debian:buster
-EXPOSE 9000
-RUN apt update
-RUN apt-get install -y vim php-fpm php-gd php-mysql php-cli \
+FROM ynoam_debian
+
+RUN apt-get install -y php-fpm php-gd php-mysql php-cli \
 	php-common php-curl php-opcache php-json php-imap php-mbstring php-xml \
 	wget
 COPY cnf/latest.tar.gz /
