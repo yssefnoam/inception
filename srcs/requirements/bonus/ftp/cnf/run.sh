@@ -1,6 +1,10 @@
-adduser --disabled-password --gecos "" ynoam   && echo "1 work"
-echo -e "1234\n1234" | passwd ynoam            && echo "2 work"
-echo ynoam > /etc/vsftpd.userlist              && echo "3 work"
-mkdir -R /var/www/html                         && echo "4 work"
+useradd -d /var/www/html -m ynoam 
+# echo -e "1234\n1234" | passwd ynoam
+echo "ynoam:1234" | chpasswd
+echo ynoam > /etc/vsftpd.userlist
 
-tail -f /dev/null
+mkdir -p /var/www/html
+chmod -R 777 /var/www/html
+
+mkdir -p /var/run/vsftpd/empty
+/usr/sbin/vsftpd /etc/vsftpd.conf 
