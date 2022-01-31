@@ -1,0 +1,102 @@
+html, body {
+    background-color: white;
+    color:white;
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 3px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+h1 {
+  padding-top: 10px;
+  font-size: 10.0em;
+}
+h2 {
+  font-size: 3.0em;
+  color: white;
+}
+h3 {
+  font-size: 2.5em;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.about{
+  background-color: #315252;
+  background-size: cover;
+  min-height: 100%;
+  padding-bottom: 40px;
+  padding-top:40px;
+
+}
+.skills {
+  background-color: #141f1f;
+  background-size: cover;
+  min-height: 100%;
+  padding-bottom: 40px;
+  padding-top:40px;
+}
+.title {
+  padding-bottom: 10px;
+  width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  top: 250px;
+}
+.skill {
+  background-color: white;
+  color: #212121;
+  font-size: 3rem;
+  opacity: .8;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 15px;
+  position: relative;
+  display: inline-block;
+}
+.contact {
+  top: 280px;
+  position: relative;
+  font-size: 70%;
+  width: 140px;
+  display: inline-block;
+  cursor: pointer; 
+  padding-bottom: 8px;
+}
+
+.contact-section {
+  background-color: #333;
+  background-size: cover;
+  height: 300px;
+  padding-top: 20px;
+} 
+
+.contact-buttons {
+  display: block;
+  width: 100%;
+  bottom: 0;
+  position: relative;
+  text-align: center;
+}
+
+.btn-linkedin {
+	  background: #0E76A8;
+	  border-radius: 10px;
+	  color: #fff;
+	  border-width: 1px;
+	  border-style: solid;
+	  border-color: #084461;
+}
+
+.btn-github {
+    background-color: #24292e;
+    border-radius: 10px;
+    color: white; 
+    border-width: 1px;
+    border-style: solid;
+	  border-color: #084461;
+}
