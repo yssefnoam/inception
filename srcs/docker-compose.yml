@@ -81,6 +81,15 @@ services:
     restart: always
     networks:
       - mynetwork
+  portfolio:
+    image: portfolio
+    build: requirements/bonus/portfolio
+    container_name: portfolio
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - mynetwork
 volumes:
   wp-db:
     driver_opts:
