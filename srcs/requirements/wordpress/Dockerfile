@@ -2,7 +2,7 @@ FROM ynoam_debian
 
 RUN apt-get install -y php-fpm php-gd php-mysql php-cli \
 	php-common php-curl php-opcache php-json php-imap php-mbstring php-xml \
-	wget
+	wget mariadb-client
 COPY cnf/latest.tar.gz /
 RUN tar -xvf /latest.tar.gz
 RUN mkdir -p  /var/www/html

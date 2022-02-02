@@ -41,6 +41,8 @@ services:
     restart: always
     volumes:
         - wp-files:/var/www/html
+    env_file:
+      - .env
     networks:
       - mynetwork
   redis:
